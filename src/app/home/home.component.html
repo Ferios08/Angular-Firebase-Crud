@@ -1,0 +1,22 @@
+
+
+<table class=" container table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Password</th>
+      <th scope="col">Operation</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="users">
+    <tr  *ngFor="let user of users; let i = index" [attr.data-index]="i">
+    <th scope="row">{{i}}</th>
+      <td>{{user.payload.doc.data().id}}</td>
+      <td>{{user.payload.doc.data().username}}</td>
+      <td>{{user.payload.doc.data().type}}</td>
+      <td ><button  (click)=deleteUser(i)>delete</button></td>
+    </tr>
+
+  </tbody>
+</table>
